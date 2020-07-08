@@ -20,7 +20,7 @@
            <i class="fa fa-user-circle"></i>
          </span>
         <!--   user name Input-->
-         <input class="form-input" id="txt-input" type="text" placeholder="@UserName" required>
+         <input class="form-input" id="txt-input" type="text" placeholder="Email" required>
      
       <br>
      
