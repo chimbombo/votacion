@@ -4,7 +4,7 @@
       <div>
         <h1 align="center">Register form</h1>
       </div>
-      <form>
+      <form @submit.prevent="newUser({name: inputName, email: inputEmail, birthDate: inputDate, password: inputPassword1})">
         <div class="form-group">
           <label for="inputName">Name</label>
           <input type="text" class="form-control" id="inputName" v-model="inputName"/>
@@ -34,7 +34,7 @@
         </div>
         <div class="form-group">
           <label for="inputPassword2">Repeat Password</label>
-          <input type="password" class="form-control" id="inputPassword1" v-model="inputPassword2"/>
+          <input type="password" class="form-control" id="inputPassword2" v-model="inputPassword2"/>
         </div>
         <button type="submit" :disabled='!passwordDisabled' class="btn btn-primary">Register</button>
       </form>
@@ -57,7 +57,7 @@ export default {
     }
   },
   methods:{
-
+    ...mapActions(['newUser'])
   },
   computed:{
     passwordDisabled(){
