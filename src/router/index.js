@@ -6,6 +6,14 @@ Vue.use(VueRouter)
 const routes = [{
         path: '/',
         name: 'Login',
+        beforeEnter: (to, from, next) => {
+            if (localStorage.getItem('user')) {
+                next({
+                    path: '/home'
+                })
+            }
+            next()
+        },
         component: () =>
             import ( /* webpackChunkName: "about" */ '../views/Login.vue')
     },
