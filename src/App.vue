@@ -3,9 +3,6 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
       <router-link class="navbar-brand" to="/home" v-if="userLogged">Home</router-link>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
@@ -20,11 +17,13 @@
           <li class="nav-item">
             <router-link class="nav-link" to="/register" v-if="!userLogged">Register</router-link>
           </li>
-          <li>
-            <button class="submit" @click="logOut" v-if="userLogged">LogOut</button>
-          </li>
         </ul>
+        <!--<button class="submit" @click="logOut" v-if="userLogged">LogOut</button>-->
+        
       </div>
+      <form class="form-inline my-2 my-lg-0">
+        <button class="btn btn-outline-danger my-2 my-sm-0" type="submit"  @click="logOut" v-if="userLogged">LogOut</button>
+        </form>
     </nav>
 
     <router-view/>

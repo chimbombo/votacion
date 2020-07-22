@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { auth } from '../firebase'
+import { auth, db } from '../firebase'
 import router from '../router'
 
 Vue.use(Vuex)
@@ -22,8 +22,15 @@ export default new Vuex.Store({
         newUser({ commit }, user) {
             auth.createUserWithEmailAndPassword(user.email, user.password)
                 .then(res => {
-                    console.log(res);
-                    router.push('/home')
+                    db.collection('userData').
+                    add({
+                        userId: res.user.uid,
+                        email: user.email,
+                        name: user.name,
+                        birthDate: user.birthDate
+                    }).then(
+                        router.push('/')
+                    )
                 })
                 .catch(error => {
                     console.log(error);
@@ -50,6 +57,7 @@ export default new Vuex.Store({
             auth.signOut()
                 .then(() => {
                     commit('setUser', null)
+                    localStorage.removeItem('user')
                     router.push('/')
                 })
         }
