@@ -6,10 +6,10 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <router-link class="nav-link" to="/waifus" v-if="userLogged" >Waifus Vote</router-link>
+            <router-link class="nav-link" to="/vote" v-if="userLogged" >Waifus Vote</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/husbandos" v-if="userLogged" >Husbandos Vote</router-link>
+            <router-link class="nav-link" to="/vote" v-if="userLogged" >Husbandos Vote</router-link>
           </li>
           <li class="nav-item">
             <router-link class="nav-link" to="/" v-if="!userLogged" >LogIn</router-link>
@@ -25,8 +25,7 @@
         <button class="btn btn-outline-danger my-2 my-sm-0" type="submit"  @click="logOut" v-if="userLogged">LogOut</button>
         </form>
     </nav>
-
-    <router-view/>
+    <div class="colorBonito"><router-view/></div>
   </div>
 </template>
 
@@ -43,3 +42,10 @@ export default {
   }
 }
 </script>
+
+<style>
+.colorBonito{
+    background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);
+    background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+}
+</style>
