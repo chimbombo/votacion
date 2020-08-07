@@ -36,7 +36,8 @@ export default {
 /* Control the left side */
 .left {
   left: 0;
-  background-color: #fed6e3;
+  background-image: linear-gradient(-225deg, #FFE6FA 0%, #E3FDF5 100%);
+    background-image: linear-gradient(to top, #fed6e3 0%,  #a8edea 100%);
 }
 
 /* Control the right side */

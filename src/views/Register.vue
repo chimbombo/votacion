@@ -1,4 +1,35 @@
 <template>
+    <section>
+        <b-field label="Name">
+            <b-input v-model="inputName"></b-input>
+        </b-field>
+
+        <b-field label="Email">
+            <b-input type="email"
+                placeholder="otaku@mail.com"
+                maxlength="320">
+            </b-input>
+        </b-field>
+
+        <b-field label="Password">
+            <b-input type="password"
+                password-reveal
+                v-model="inputPassword1">
+            </b-input>
+        </b-field>
+
+        <b-field label="Repeat Password">
+            <b-input type="password"
+                password-reveal
+                v-model="inputPassword2">
+            </b-input>
+        </b-field>
+
+    </section>
+</template>
+
+<!--
+<template>
   <div>
     <div class="container">
       <div>
@@ -41,6 +72,7 @@
     </div>
   </div>
 </template>
+-->
 
 <script>
 import {mapActions, mapState} from 'vuex'
