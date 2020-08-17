@@ -2,9 +2,9 @@
     <div class="container">
       <section class="center-login">
         <form @submit.prevent="logIn({email: inputEmail, password: inputPassword})">
+          <h1 class="title center-button">Login</h1>
           <b-field label="Email">
             <b-input
-
                 placeholder="Email"
                 v-model="inputEmail"
                 type="email"
@@ -16,6 +16,7 @@
         </b-field>
         <b-field label="Password">
             <b-input type="password"
+                icon="key"
                 v-model="inputPassword"
                 password-reveal>
             </b-input>
@@ -27,42 +28,6 @@
     </section>
     </div>
 </template>
-
-
-<!--
-<template>
-  <div>
-    <div class="container">
-      <div>
-        <h1 align="center">Log In</h1>
-      </div>
-      <form @submit.prevent="logIn({email: inputEmail, password: inputPassword})">
-        <div class="form-group">
-          <label for="inputEmail">Email address</label>
-          <input
-            type="email"
-            class="form-control"
-            id="inputEmail"
-            aria-describedby="emailHelp"
-            placeholder="otaku@otaku.com"
-            v-model="inputEmail"
-          />
-          <small
-            id="emailHelp"
-            class="form-text text-muted"
-          >We'll never share your email with anyone else.</small>
-        </div>
-        <div class="form-group">
-          <label for="inputPassword">Password</label>
-          <input type="password" class="form-control" id="inputPassword" v-model="inputPassword"/>
-        </div>
-        <p>{{error}}</p>        
-        <button type="submit" class="btn btn-primary">Login</button>
-      </form>
-    </div>
-  </div>
-</template>
--->
 
 
 <script>

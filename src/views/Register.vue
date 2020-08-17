@@ -1,78 +1,61 @@
 <template>
-    <section>
-        <b-field label="Name">
-            <b-input v-model="inputName"></b-input>
-        </b-field>
+  <div class="container">
+      <section class="center-register">
+        <form @submit.prevent="newUser({name: inputName, email: inputEmail, birthDate: moment(inputDate).format('YYYY-MM-DD'), password: inputPassword1})">
+          <h1 class="title center-button">Register form</h1>
+            <b-field label="Name">
+                <b-input 
+                    v-model="inputName"
+                    icon="user-astronaut"></b-input>
+            </b-field>
 
-        <b-field label="Email">
-            <b-input type="email"
-                placeholder="otaku@mail.com"
-                maxlength="320">
-            </b-input>
-        </b-field>
+            <b-field label="Your birthdate">
+                <b-datepicker
+                    v-model="inputDate"
+                    placeholder="Click to select..."
+                    icon="calendar-alt"
+                    trap-focus>
+                </b-datepicker>
+            </b-field>
 
-        <b-field label="Password">
-            <b-input type="password"
-                password-reveal
-                v-model="inputPassword1">
-            </b-input>
-        </b-field>
+            <b-field label="Email">
+                <b-input 
+                    type="email"
+                    v-model="inputEmail"
+                    placeholder="otaku@mail.com"
+                    icon="envelope"
+                    maxlength="320">
+                </b-input>
+            </b-field>
 
-        <b-field label="Repeat Password">
-            <b-input type="password"
-                password-reveal
-                v-model="inputPassword2">
-            </b-input>
-        </b-field>
+            <b-field label="Password">
+                <b-input 
+                    type="password"
+                    icon="key"
+                    password-reveal
+                    v-model="inputPassword1">
+                </b-input>
+            </b-field>
 
-    </section>
-</template>
+            <b-field label="Repeat Password">
+                <b-input 
+                    type="password"
+                    icon="key"
+                    password-reveal
+                    v-model="inputPassword2">
+                </b-input>
+            </b-field>
 
-<!--
-<template>
-  <div>
-    <div class="container">
-      <div>
-        <h1 align="center">Register form</h1>
-      </div>
-      <form @submit.prevent="newUser({name: inputName, email: inputEmail, birthDate: inputDate, password: inputPassword1})">
-        <div class="form-group">
-          <label for="inputName">Name</label>
-          <input type="text" class="form-control" id="inputName" v-model="inputName"/>
-        </div>
-        <div class="form-group">
-          <label for="inputDate">Birth date</label>
-          <input type="date" class="form-control" name="inputDate" v-model="inputDate" />
-        </div>
-        <div class="form-group">
-          <label for="inputEmail">Email address</label>
-          <input
-            type="email"
-            class="form-control"
-            id="inputEmail"
-            aria-describedby="emailHelp"
-            placeholder="otaku@otaku.com"
-            v-model="inputEmail"
-          />
-          <small
-            id="emailHelp"
-            class="form-text text-muted"
-          >We'll never share your email with anyone else.</small>
-        </div>
-        <div class="form-group">
-          <label for="inputPassword1">Password</label>
-          <input type="password" class="form-control" id="inputPassword1" v-model="inputPassword1"/>
-        </div>
-        <div class="form-group">
-          <label for="inputPassword2">Repeat Password</label>
-          <input type="password" class="form-control" id="inputPassword2" v-model="inputPassword2"/>
-        </div>
-        <button type="submit" :disabled='!passwordDisabled' class="btn btn-primary">Register</button>
-      </form>
+          <div class="center-button">
+            <b-button 
+                :disabled='!passwordDisabled'
+                native-type="submit">Submit</b-button>
+          </div> 
+        </form>
+      </section>
     </div>
-  </div>
 </template>
--->
+
 
 <script>
 import {mapActions, mapState} from 'vuex'
@@ -82,7 +65,7 @@ export default {
   data(){
     return{
       inputName: '',
-      inputDate:'',
+      inputDate: undefined,
       inputEmail: '',
       inputPassword1: '',
       inputPassword2: ''
@@ -98,3 +81,29 @@ export default {
   }
 }
 </script>
+
+
+
+<style scoped>
+  .center-register {
+
+    width: 50%;
+    margin: auto;
+    background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);
+    background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+    padding: 2rem 4rem;
+    box-sizing: border-box;
+    border-radius: 20px;
+
+  }
+
+  @media (max-width: 425px ){
+    .center-register{
+      width: 100%
+    }
+  }
+
+  .center-button {
+    text-align: center;
+  }
+</style>

@@ -3,9 +3,11 @@ import Buefy from 'buefy'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import moment from "moment"
+Vue.prototype.moment = moment
+
 Vue.use(Buefy, {
-    defaultIconPack: 'fas',
-    // ...
+    defaultIconPack: 'fas'
 })
 
 import 'buefy/dist/buefy.css'

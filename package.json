@@ -10,6 +10,7 @@
     "buefy": "^0.8.20",
     "core-js": "^3.6.5",
     "firebase": "^7.15.5",
+    "moment": "^2.27.0",
     "sweetalert": "^2.1.2",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",

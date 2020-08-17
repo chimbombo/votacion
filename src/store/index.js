@@ -8,7 +8,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
     state: {
         user: null,
-        error: null
+        error: null,
+        url: null
     },
     mutations: {
         setUser(state, payload) {
@@ -65,11 +66,10 @@ export default new Vuex.Store({
     modules: {},
     getters: {
         userLogged(state) {
-            if (!state.user) {
-                return false
-            } else {
-                return true
-            }
+            return !!state.user;
+        },
+        getUrl() {
+            console.log(router.currentRoute);
         }
     }
 })
