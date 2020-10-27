@@ -1,3 +1,4 @@
+<!--
 <template>
     <div>
         <div id="carouselExampleIndicators" class="carousel slide carouselSize" data-ride="carousel" >
@@ -43,50 +44,85 @@
 </div>
     </div>
 </template>
+-->
 
+<template>
+    <b-carousel-list v-model="test" :data="items" :items-to-show="3">
+        <template slot="item" slot-scope="list">
+            <div class="card">
+                <div class="card-image">
+                    <figure class="image is-5by4">
+                        <a @click="info(list.index)"><img :src="list.image"></a>
+                    </figure>
+                </div>
+                <div class="card-content">
+                    <div class="content">
+                        <p class="title is-6">{{ list.title }}</p>
+                        <p class="subtitle is-7">@johnsmith</p>
+                        <div class="field is-grouped" >
+                            <p class="control" v-if="list.rating">
+                                <b-rate :value="list.rating" show-score disabled/>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </b-carousel-list>
+</template>
 
 <script>
 export default {
-    
+    data() {
+        return {
+            test: 0,
+            items: [
+                {
+                    title: 'Slide 1',
+                    image: 'https://buefy.org/static/img/placeholder-1280x960.png',
+                    rating: 4.4
+                },
+                {
+                    title: 'Slide 2',
+                    image: 'https://buefy.org/static/img/placeholder-1280x960.png',
+                    rating: 3.5
+                },
+                {
+                    title: 'Slide 3',
+                    image: 'https://buefy.org/static/img/placeholder-1280x960.png',
+                    rating: 5
+                },
+                {
+                    title: 'Slide 4',
+                    image: 'https://buefy.org/static/img/placeholder-1280x960.png'
+                },
+                {
+                    title: 'Slide 5',
+                    image: 'https://buefy.org/static/img/placeholder-1280x960.png',
+                    rating: 5
+                },
+                {
+                    title: 'Slide 6',
+                    image: 'https://buefy.org/static/img/placeholder-1280x960.png',
+                    rating: 4
+                },
+                {
+                    title: 'Slide 7',
+                    image: 'https://buefy.org/static/img/placeholder-1280x960.png',
+                    rating: 2.7
+                },
+                {
+                    title: 'Slide 8',
+                    image: 'https://buefy.org/static/img/placeholder-1280x960.png',
+                    rating: 1.5
+                }
+            ]
+        }
+    },
+    methods: {
+        info(value) {
+            this.test = value
+        }
+    }
 }
 </script>
-
-<style>
-  .fontIcon{
-    height: 100px;
-    width: 100px;
-    border-radius: 15px;
-  }
-
-  .carouselSize{
-    width: 1510px;
-    margin: auto;
-  }
-
-  .monoName{
-    font-size: 50px;
-    color: black;
-  }
-
-  .monoDescription{
-    font-size: 30px;
-    color: black;
-  }
-
-.voteButton{
-      background: #B8F2E6;
-      display: inline-block;
-      color: #252537;
-    
-      width: 60px;
-      height: 50px;
-    
-      border-radius: 5px;
-      
-      outline: none;
-      border: none;
-    
-      cursor: pointer;
-      text-align: center;
-  }
-</style>

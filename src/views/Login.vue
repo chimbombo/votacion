@@ -48,7 +48,6 @@ export default {
         ...mapActions(['logIn']),
         clearIconClick() {
                 this.inputEmail = '';
-                alert('Email cleared!')
             }
     }
 }
